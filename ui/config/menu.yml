@@ -1,0 +1,45 @@
+status:
+  system:
+    _type: command
+    command: echo "hello world"
+  date:
+    _type: command
+    command: date | sed -e "s/.\{20\}/&\n/g"
+  uptime:
+    _type: command
+    command: uptime | sed -e "s/.\{20\}/&\n/g"
+scanners:
+  network:
+    _type: app
+    module: networkScanner.py
+  wifi:
+    _type: app
+    module: wifiScanner.py
+emulate:
+  remote:
+    lamp:
+      !!str ON:
+        _type: command
+        _color: #00FF00
+        command: irsend SEND_ONCE lamp ON
+      !!str OFF:
+        _type: command
+        _color: #252525
+        command: irsend SEND_ONCE lamp OFF
+level1_a:
+  _color: #FFFF00
+  level2_a:
+    level3_a:
+      _type: command
+      command: echo "hi"
+    level3_b:
+      _type: command
+      command: echo "hi2"
+  level2_b:
+    level3_c:
+      _type: command
+      command: echo "hi there"
+    level3_d:
+      _type: command
+      command: echo "damo"
+
